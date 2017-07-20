@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="/stylesheets/divy.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+         <nav class="navbar navbar-inverse ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="/images/divy1.png" class="navbar-brand" alt="Responsive image">
+                    <a class="navbar-brand" href="http://localhost:4000/myProfile">Online Exam System</a>
+                </div>
+                <div class="collapse navbar-collapse"  id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <img src="/uploads/<%=ss[1]%>" class="log4" alt="New York"></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=ss[0]%>
+                              <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://localhost:4000/myProfile">Profile</a></li>
+                                <li><a href="http://localhost:4000/editProfile">Edit Profile</a></li>
+                                <li><a href="http://localhost:4000/logout">Logout</a></li>
+                            </ul>
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+
+        <div class="col-sm-8 col-sm-offset-1">
+          >>&nbsp;<a href="http://localhost:4000/myProfile">Home</a>
+          >>&nbsp;<a href="http://localhost:4000/a/<%=pq[0]%>"><%=pq[0]%></a>
+          >>&nbsp;<a href="http://localhost:4000/select_subtypes/<%=pq[0]%>/<%=pq[1]%>"><%=pq[1]%></a>
+          >>&nbsp;<a href="#"><%=pq[2]%></a>
+        </div>
+        <br>
+
+        <center><h3><%=pq[2]%></h3><center>
+          <br>
+          <p><u>Select Any Test</u></p>
+          <div class="container">
+            <% var len = pp.length;
+            if(len == 0)
+            {
+              %>
+              <h1>SORRY !!! There is no Test available for this type</h1>
+              <%
+            }
+            else if(len % 2 == 0)
+            {
+              for(var i=0 ; i<len ; i=i+2)
+              {
+                %>
+                <div>
+            <div class="col-sm-5 col-sm-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading "> <h4><b><a href="/test/instructions/<%=pp[i].test_id%>"><%=pp[i].test_id%></a></b></h4></div>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="panel panel-default">
+                    <div class="panel-heading "> <h4><b><a href="/test/instructions/<%=pp[i+1].test_id%>"><%=pp[i+1].test_id%></a></b></h4></div>
+                </div>
+            </div>
+          </div>
+          <%}}
+          else if(len == 1)
+          {
+            %>
+            <div class="col-sm-5 col-sm-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading "> <h4><b><a href="/test/instructions/<%=pp[0].test_id%>"><%=pp[0].test_id%></a></b></h4></div>
+                </div>
+            </div>
+            <%
+          }
+          else
+          {
+            <!-- console.log("Inside else"); -->
+            <!-- console.log(len/2); -->
+            for(var i=0 ; i<(len/2) ; i=i+2)
+            {
+              console.log("I is "+i);
+              %>
+              <div>
+          <div class="col-sm-5 col-sm-offset-1">
+              <div class="panel panel-default">
+                  <div class="panel-heading "> <h4><b><a href="/test/instructions/<%=pp[i].test_id%>"><%=pp[i].test_id%></a></b></h4></div>
+              </div>
+          </div>
+          <div class="col-sm-5">
+              <div class="panel panel-default">
+                  <div class="panel-heading "> <h4><b><a href="/test/instructions/<%=pp[i+1].test_id%>"><%=pp[i+1].test_id%></a></b></h4></div>
+              </div>
+          </div>
+        </div>
+              <%
+            }%>
+            <div>
+              <div class="col-sm-5 col-sm-offset-1">
+                  <div class="panel panel-default">
+                      <div class="panel-heading "> <h4><b><a href="/test/instructions/<%=pp[len-1].test_id%>"><%=pp[len-1].test_id%></a></b></h4></div>
+                  </div>
+              </div>
+            </div>
+        <%  }%>
+            </div>
+
+           <div class="footer3">
+             <footer>
+                <center> “Copyright © online test system. All Right Reserved” ​and “Contact Us: +91 90000 00000”</center>
+            </footer>
+         </div>
+    </body>
+</html>

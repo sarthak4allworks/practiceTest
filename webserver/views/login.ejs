@@ -1,0 +1,62 @@
+  <!DOCTYPE html>
+<html>
+    <head>
+        <title><%=title%></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="../stylesheets/divy.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../javascripts/validate.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="../images/divy1.png" class="navbar-brand" alt="Responsive image">
+                    <a class="navbar-brand" href="/">Online Exam System</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/register_form"><span class="glyphicon glyphicon-log-in"></span> Signup</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+         <div class="col-sm-6 col-sm-offset-3 log">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Login</h4>
+                </div>
+                <div>
+                </div>
+                <div class="panel-body">
+                    <p class="text-warning"><i><b>Login to take test</b></i></p>
+                    <form name="LoginPage" action="/users/login" method="post" onsubmit="return validateLogin()">
+                        <div class="form-group">
+                            <label for="Roll_no"> Roll no:</label>
+                            <input type="text" class="form-control" name="roll" placeholder="Type rollno here" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">Password:</label>
+                            <input type="password"  class="form-control" name="pass" placeholder="Type password here">
+                        </div>
+                        <input type="submit" value="Submit" class="inpu">
+                    </form>
+                </div>
+            </div>
+         </div>
+
+        <div class="footer1">
+         <footer>
+                <center> “Copyright © online test system. All Right Reserved” ​and “Contact Us: +91 90000 00000”</center>
+        </footer>
+         </div>
+    </body>
+</html>

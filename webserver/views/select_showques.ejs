@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="/stylesheets/divy.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+ function hideTr(id)
+ {
+   var ide = id;
+   var ide1 = id+"";
+   var length = ide1.length;
+   var io = ide1.substring(2,length);
+   var a = "right"+io;
+   var b = "desc"+io;
+   var x = document.getElementById(a);
+   var y = document.getElementById(b);
+   if(x.style.display === 'none')
+   {
+        x.style.display = 'block';
+   }
+   else
+   {
+        x.style.display = 'none';
+   }
+   if(y.style.display === 'none')
+   {
+        y.style.display = 'block';
+   }
+   else
+   {
+        y.style.display = 'none';
+    }
+ }
+</script>
+    </head>
+    <body>
+         <nav class="navbar navbar-inverse ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="/images/divy1.png" class="navbar-brand" alt="Responsive image">
+                    <a class="navbar-brand" href="http://localhost:4000/myProfile">Online Exam System</a>
+                </div>
+                <div class="collapse navbar-collapse"  id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <img src="/uploads/<%=ss[1]%>" class="log4" alt="New York"></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=ss[0]%>
+                              <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://localhost:4000/myProfile">Profile</a></li>
+                                <li><a href="http://localhost:4000/editProfile">Edit Profile</a></li>
+                                <li><a href="http://localhost:4000/logout">Logout</a></li>
+                            </ul>
+                         </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+
+        <div class="col-sm-8 col-sm-offset-1">
+          >>&nbsp;<a href="http://localhost:4000/myProfile">Home</a>
+          >>&nbsp;<a href="http://localhost:4000/a/<%=pq[0]%>"><%=pq[0]%></a>
+          >>&nbsp;<a href="http://localhost:4000/select_subtypes/<%=pq[0]%>/<%=pq[1]%>"><%=pq[1]%></a>
+          >>&nbsp;<a href="#"><%=pq[2]%></a>
+        </div>
+        <br><br><br>
+
+        <center><h1><%=pq[2]%></h1><center>
+          <div class="container">
+          <% var len = pp.length;
+          if(len == 0)
+          {
+            %>
+            <h1>Sorry !!! There is no questions avalilable for this type.</h1>
+            <%
+          }
+          else
+          {
+          for(var i=0 ; i<len ; i++)
+          {
+            var first="right"+i;
+            var second = "desc"+i;
+            var third = "bt"+i;
+            %>
+                <div class="col-sm-8 col-sm-offset-1 log6">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr class="danger">
+                          <th><%=pp[i].qNo%>)&nbsp;<%=pp[i].question%></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="info">
+                          <td>&nbsp;A. &emsp;&nbsp; <%=pp[i].A%></td>
+                      </tr>
+                      <tr class="info">
+                           <td>&nbsp;B. &emsp;&nbsp;<%=pp[i].B%></td>
+                      </tr>
+                      <tr class="info">
+                          <td>&nbsp;C. &emsp;&nbsp;<%=pp[i].C%></td>
+                      </tr>
+                      <tr class="info">
+                          <td>&nbsp;D. &emsp;&nbsp;<%=pp[i].D%></td>
+                      </tr><br>
+                      <tr class="info" id="<%=first%>" style="display:none;">
+                        <td>&nbsp;Answer:&nbsp;<%=pp[i].right%></td>
+                      </tr><br>
+                      <tr class="info" id="<%=second%>" style="display:none;">
+                        <td>&nbsp;Explanation:&nbsp;<%=pp[i].desc%></td>
+                      </tr><br>
+                      <tr class="info">
+                        <td>&nbsp;<a href="javascript:void(0);" id="<%=third%>" onclick="hideTr(this.id)"><span class="glyphicon glyphicon-book"></span> Show Ans</a></td>
+                      </tr><br>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-sm-2">
+                    <img src="/uploads/<%=pp[i].imag%>" class="log5" alt="No Image">
+                </div>
+                <%
+              }
+            }
+          %>
+            </div>
+
+           <div class="footer3">
+             <footer>
+                <center> “Copyright © online test system. All Right Reserved” ​and “Contact Us: +91 90000 00000”</center>
+            </footer>
+         </div>
+    </body>
+</html>

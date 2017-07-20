@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title id="kulu"></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/divy.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/javascripts/validate.js"></script>
+        <script type="text/javascript">
+          var cmin=<%=pp.time[0].time%>;
+          var total=cmin*60;
+          cmin=cmin-1;
+          var ctr=0;
+          var dom=document.getElementById("kulu");
+          function ram(){
+          var dom1=document.getElementById("kulu1");
+          dom.innerHTML=(cmin)+" mins  "+(total%60)+" secs";
+          dom1.innerHTML=(cmin)+" mins  "+(total%60)+" secs";
+          total=total-1;ctr++;
+          if(ctr==60){ctr=0;cmin=cmin-1;}
+          if(total==0){
+          ram1();}
+          setTimeout("ram()", 1000);
+                        }
+          function ram1(){
+          alert("Time is over");
+          document.showTest.submit();
+            console.log("Done");
+                          }
+          </script>
+    </head>
+    <body onload="ram()">
+        <center><h1><u><%=test%></u></h1><center>
+            <div class="col-sm-2 log12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="kulu1">Remaining Time: </h3>
+                    </div>
+                    <div class="panel-body">
+                      <% var len = pp.qarr.length;
+                        for(var i=1 ; i<=len ; i++)
+                        {
+                          var ky = "ide"+i;
+                      %>
+                        <div id=<%=ky%> class="col-sm-2 log11"><%=i%></div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+
+            <form action="/showResult" method="post" name="showTest">
+            <div class="container">
+              <%
+              for(var i=1 ; i<=len ; i++)
+              {
+                var ques = "ques"+i;
+                var ans = "answer"+i;
+                var idu = "ide"+i;
+                %>
+                <div class="col-sm-7 col-sm-offset-2">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="danger">
+                                <input type="hidden" name="<%=ques%>">
+                                <th>Q.<%=pp.qarr[i-1].qno%>-&emsp;<%=pp.qarr[i-1].question%></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="info">
+                                <td><input type="radio" name="<%=ans%>" class="<%=idu%>" onclick="changeColor('<%=idu%>')" value="A">&nbsp; <%=pp.qarr[i-1].A%></td>
+                            </tr>
+                            <tr class="info">
+                                <td><input type="radio" name="<%=ans%>" class="<%=idu%>" onclick="changeColor('<%=idu%>')" value="B">&nbsp; <%=pp.qarr[i-1].B%></td>
+                            </tr>
+                            <tr class="info">
+                                <td><input type="radio" name="<%=ans%>" class="<%=idu%>" onclick="changeColor('<%=idu%>')" value="C">&nbsp; <%=pp.qarr[i-1].C%></td>
+                            </tr>
+                            <tr class="info">
+                                <td><input type="radio" name="<%=ans%>" class="<%=idu%>" onclick="changeColor('<%=idu%>')" value="D">&nbsp; <%=pp.qarr[i-1].D%></td>
+                            </tr>
+                            <input type="radio" name="<%=ans%>" value="Z" checked style="display:none;">
+                            <tr class="info">
+                                <td>&nbsp;<a href="javascript:void(0);" onclick="ClearPlz('<%=idu%>')"><span class="glyphicon glyphicon-remove-circle"></span>Clear option</a></td>
+                            </tr>
+                            <br>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-2">
+                    <img src="/uploads/<%=pp.qarr[i-1].imag%>" class="img-responsive log8" alt="New York">
+                </div>
+            </div>
+            <%}%>
+            <br>
+            <div class="col-sm-2 col-sm-offset-5 log9">
+                <input type="submit" class="inpu" value="Submit">
+            </div>
+          </form>
+          <br>
+          <br><br>
+    </body>
+</html>

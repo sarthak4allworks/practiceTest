@@ -1,0 +1,177 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Show Result</title>
+  </head>
+  <body>
+    <h1>Progile image is <%=picname%></h1>
+    <h1>Rollno is <%=rollno%></h1>
+    <p>Your rank is <%=rank%> / <%=size%></p>
+    <p>Test id is <%=pp.res2[0].test_id%></p>
+    <p>You get <%=mark%> / <%=pp.res4[0].maxMarks%></p>
+    <% var len = pp.res2.length;
+    for(var i=0 ; i<len ; i++)
+    {
+      %>
+      <table>
+        <tr>
+          <td>Q.<%=pp.res2[i].qno%>-</td>
+          <td><%=pp.res2[i].question%></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%=pp.res2[i].A%></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%=pp.res2[i].B%></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%=pp.res2[i].C%></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%=pp.res2[i].D%></td>
+        </tr>
+        <tr>
+          <td>Question image is </td>
+          <td><%=pp.res2[i].imag%></td>
+        </tr>
+        <tr>
+          <td>Right ans </td>
+          <td><%=pp.res2[i].right%></td>
+        </tr>
+        <tr>
+          <td>Explanation :</td>
+          <td><%=pp.res2[i].desc%></td>
+        </tr>
+      </table>
+      <%
+    }
+    %>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="../stylesheets/divy.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <nav class="navbar navbar-inverse ">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <img src="../images/divy1.png" class="navbar-brand" alt="Responsive image">
+                 <a class="navbar-brand" href="http://localhost:4000/myProfile">Online Exam System</a>
+             </div>
+             <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <img src="../uploads/<%=picname%>"class="log4" alt="New York"></li>
+                     <li class="dropdown">
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=rollno%>
+                           <span class="caret"></span>
+                         </a>
+                         <ul class="dropdown-menu">
+                             <li><a href="http://localhost:4000/myProfile">Profile</a></li>
+                             <li><a href="http://localhost:4000/editProfile">Edit Profile</a></li>
+                             <li><a href="http://localhost:4000/logout">Logout</a></li>
+                         </ul>
+                      </li>
+                    </ul>
+             </div>
+         </div>
+     </nav>
+
+        <div class="container log7">
+            <div class="panel panel-info">
+            <div class="panel-heading">
+              <h2 class="panel-title">Your Performance</h2>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Roll No:</th>
+                            <th>Test_id</th>
+                            <th>Rank / Total</th>
+                            <th>Get Marks / Max Marks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="success">
+                            <td><%=rollno%></td>
+                            <td><%=pp.res2[0].test_id%></td>
+                            <td><%=rank%> / <%=size%></td>
+                            <td><%=mark%> / <%=pp.res4[0].maxMarks%></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        <div class="jumbotron"><center><h1 style="color: green"><%=pp.res2[0].test_id%> Solutions</h1></center></div>
+        <% var len = pp.res2.length;
+        for(var i=0 ; i<len ; i++)
+        {
+          %>
+        <div class="container log9">
+        <div class="col-sm-9">
+        <table class="table table-bordered">
+            <thead>
+                <tr class="danger">
+                    <th>Q.<%=pp.res2[i].qno%>-&emsp;<%=pp.res2[i].question%></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="info">
+                    <td>&nbsp;A&emsp;&nbsp;<%=pp.res2[i].A%></td>
+                </tr>
+                <tr class="info">
+                    <td>&nbsp;B&emsp;&nbsp;<%=pp.res2[i].B%></td>
+                </tr>
+                <tr class="info">
+                    <td>&nbsp;C&emsp;&nbsp;<%=pp.res2[i].C%></td>
+                </tr>
+                <tr class="info">
+                    <td>&nbsp;D&emsp;&nbsp;<%=pp.res2[i].D%></td>
+                </tr>
+                <br>
+                <tr class="info">
+                    <td>&nbsp;Right Ans:&nbsp;<%=pp.res2[i].right%></td>
+                </tr>
+                <br>
+                <tr class="info">
+                    <td>&nbsp;Explanation:&nbsp;<%=pp.res2[i].desc%></td>
+                </tr>
+                <br>
+            </tbody>
+          </table>
+        </div>
+            <div class="col-sm-3">
+                <img src="/uploads/<%=pp.res2[i].imag%>" class="log14" alt="New York">
+            </div>
+        </div>
+        <%
+      }
+      %>
+
+      <div class="footer3">
+        <footer>
+           <center> “Copyright © online test system. All Right Reserved” ​and “Contact Us: +91 90000 00000”</center>
+       </footer>
+    </div>
+    </body>
+</html>

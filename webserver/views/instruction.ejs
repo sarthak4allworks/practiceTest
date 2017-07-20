@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instructions</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="/stylesheets/divy.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse ">
+       <div class="container">
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+               <img src="/images/divy1.png" class="navbar-brand" alt="Responsive image">
+               <a class="navbar-brand" href="http://localhost:4000/myProfile">Online Exam System</a>
+           </div>
+           <div class="collapse navbar-collapse"  id="myNavbar">
+               <ul class="nav navbar-nav navbar-right">
+                   <li> <img src="/uploads/<%=pic%>" class="log4" alt="New York"></li>
+                   <li class="dropdown">
+                       <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=rollno%>
+                         <span class="caret"></span>
+                       </a>
+                       <ul class="dropdown-menu">
+                           <li><a href="http://localhost:4000/myProfile">Profile</a></li>
+                           <li><a href="http://localhost:4000/editProfile">Edit Profile</a></li>
+                           <li><a href="http://localhost:4000/logout">Logout</a></li>
+                       </ul>
+                    </li>
+               </ul>
+           </div>
+       </div>
+   </nav>
+   <br>
+   <div class="container">
+     <div class="col-sm-8 col-sm-offset-2 instu">
+       <center><h3><u class="inst">Instructions</u></h3></center>
+       <br>
+       <ul>
+         <li class="l">Total number of questions : <%=pp[0].No_of_q%></li>
+         <br>
+         <li class="l">Time alloted : <%=pp[0].time%> minutes.</li>
+         <br>
+         <li class="l">Each question carry 2 mark, no negative marks.</li>
+         <br>
+         <li class="l">DO NOT refresh the page.</li>
+         <br>
+         <li class="l">All the best :-).</li>
+       </ul>
+       <br>
+       <center><button type="button" class="inpu" name="button" onclick="location.href='http://localhost:4000/after_start_test';">Start Test...</button></center>
+     </div>
+   </div>
+
+   <div class="footer5">
+     <footer>
+        <center> “Copyright © online test system. All Right Reserved” ​and “Contact Us: +91 90000 00000”</center>
+    </footer>
+ </div>
+  </body>
+</html>

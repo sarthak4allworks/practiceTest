@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%=pp[0].picname%></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" type="text/css" href="../stylesheets/divy.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+         <nav class="navbar navbar-inverse ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="../images/divy1.png" class="navbar-brand" alt="Responsive image">
+                    <a class="navbar-brand" href="http://localhost:4000/myProfile">Online Exam System</a>
+                </div>
+                <div class="collapse navbar-collapse"  id="myNavbar">
+                     <ul class="nav navbar-nav navbar-right">
+                        <li> <img src="../uploads/<%=pp[0].picname%>"class="log4" alt="New York"></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=pp[0].rollno%>
+                              <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="http://localhost:4000/myProfile">Profile</a></li>
+                                <li><a href="http://localhost:4000/editProfile">Edit Profile</a></li>
+                                <li><a href="http://localhost:4000/logout">Logout</a></li>
+                            </ul>
+                         </li>
+                       </ul>
+                </div>
+            </div>
+        </nav>
+
+         <div class="col-sm-6 log1" >
+            <div class="jumbotron">
+                <center> <img src="../images/divy5.jpg" alt="Los Angeles"><br><br><br>
+                <button type="button" onclick="location.href='http://localhost:4000/after_practice';" class="btn btn-lg btn-success" >Practice</button></center>
+            </div>
+         </div>
+          <div class="col-sm-6 log1">
+            <div class="jumbotron">
+                <center> <img src="../images/divy6.jpg" alt="Los Angeles"><br><br><br>
+                <button type="button" onclick="location.href='http://localhost:4000/after_select_test';" class="btn btn-lg btn-success" >Take Test</button></center>
+            </div>
+         </div>
+
+         <div class="footer3 footer">
+           <footer>
+                <div class="col-sm-2 log15">Follow us <a href="#"><img src="../images/divy9.png" height=25px; width=25px; class="log15"></a></div>
+                <div class="col-sm-1"> <a href="#" class="log15">About us </a></div>
+                <div class="col-sm-1"> <a href="#" class="log15">Feedback</a></div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-2 log15"><span class="glyphicon glyphicon-copyright-mark log15"></span> DivySarthak 2K17</a></div>
+                <div class="col-sm-3 col-sm-offset-2">
+                    <div class="log16"> <span class="glyphicon glyphicon-earphone "></span>8791905580 &emsp;<span class="glyphicon glyphicon-envelope"></span>  sarthak.1413088@kiet.edu</div>
+                    <div class="log16"> <span class="glyphicon glyphicon-earphone"></span>9760443213 &emsp;<span class="glyphicon glyphicon-envelope"></span>  badshahdivy@gmail.com</div>
+                </div>
+            </footer>
+    </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%=pp[0].rollno%></title>
+        <meta charset="UTF-8">
+           <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+           <link rel="stylesheet" type="text/css" href="../stylesheets/divy.css">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+           <script type="text/javascript" src="../javascripts/validate.js"></script>
+           <script type="text/javascript">
+           function mouseoverPass(obj) {
+             var obj = document.getElementById('myPassword');
+             obj.type = "text";
+           }
+           function mouseoutPass(obj) {
+             var obj = document.getElementById('myPassword');
+             obj.type = "password";
+           }
+           function mouseoverPass1(obj) {
+             var obj = document.getElementById('myPassword1');
+             obj.type = "text";
+           }
+           function mouseoutPass1(obj) {
+             var obj = document.getElementById('myPassword1');
+             obj.type = "password";
+           }
+           </script>
+    </head>
+    <body>
+
+      <nav class="navbar navbar-inverse ">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <img src="../images/divy1.png" class="navbar-brand" alt="Responsive image">
+                 <a class="navbar-brand" href="http://localhost:4000/myProfile">Online Exam System</a>
+             </div>
+             <div class="collapse navbar-collapse"  id="myNavbar">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li> <img src="../uploads/<%=pp[0].picname%>"class="log4" alt="New York"></li>
+                     <li class="dropdown">
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=pp[0].rollno%>
+                           <span class="caret"></span>
+                         </a>
+                         <ul class="dropdown-menu">
+                             <li><a href="http://localhost:4000/myProfile">Profile</a></li>
+                             <li><a href="http://localhost:4000/editProfile">Edit Profile</a></li>
+                             <li><a href="http://localhost:4000/logout">Logout</a></li>
+                         </ul>
+                      </li>
+                    </ul>
+             </div>
+         </div>
+     </nav>
+
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h4>Edit Your Profile</h4>
+                </div>
+                <div class="panel-body">
+                    <form action="/profileEdit" method="post" name="editProfile" onsubmit="return validateProfile()" encType="multipart/form-data">
+                        <div class="form-group">
+                            <label for="Roll_no"> Roll no:</label>
+                            <input type="text" class="form-control" name="roll" value="<%=pp[0].rollno%>" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Name">Name:</label>
+                            <input type="text" class="form-control" name="name" value="<%=pp[0].name%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="Branch">Branch:</label>
+                            <input type="text" class="form-control" name="branch" value="<%=pp[0].branch%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="Email">Email:</label>
+                            <input type="text" class="form-control" name="email" value="<%=pp[0].email%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="Mobile_no">Mobile No:</label>
+                            <input type="text" class="form-control" name="mob" value="<%=pp[0].mobile%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="Password">New Password:
+                              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();"></span>
+                            </label>
+                            <input type="password" class="form-control" id="myPassword" name="pass1" placeholder="Type new password here">
+                        </div>
+                        <div class="form-group">
+                            <label for="Confirm_Password">Confirm New Password:
+                              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" onmouseover="mouseoverPass1();" onmouseout="mouseoutPass1();"></span>
+                            </label>
+                            <input type="password" class="form-control" id="myPassword1" name="pass2" placeholder="Retype new password here">
+                        </div>
+                        <div class="form-group">
+                            <label for="file">Upload Your Image:</label>
+                            <input type="file" class="form-control" name="img" value="<%=pp[0].picname%>">
+                        </div>
+                        <input type="submit" value="Submit" class="inpu">
+                    </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer2 footer9">
+                  <footer>
+                       <div class="col-sm-2 log15">Follow us <a href="#"><img src="../images/divy9.png" height=25px; width=25px; class="log15"></a></div>
+                       <div class="col-sm-1"> <a href="#" class="log15">About us </a></div>
+                       <div class="col-sm-1"> <a href="#" class="log15">Feedback</a></div>
+                       <div class="col-sm-1"></div>
+                       <div class="col-sm-2 log15"><span class="glyphicon glyphicon-copyright-mark log15"></span> DivySarthak 2K17</a></div>
+                       <div class="col-sm-3 col-sm-offset-2">
+                           <div class="log16"> <span class="glyphicon glyphicon-earphone "></span>8791905580 &emsp;<span class="glyphicon glyphicon-envelope"></span>  sarthak.1413088@kiet.edu</div>
+                           <div class="log16"> <span class="glyphicon glyphicon-earphone"></span>9760443213 &emsp;<span class="glyphicon glyphicon-envelope"></span>  badshahdivy@gmail.com</div>
+                       </div>
+                   </footer>
+                </div>
+    </body>
+</html>
